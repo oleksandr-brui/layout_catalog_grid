@@ -12,3 +12,28 @@ body {
 
 @import "_header.scss";
 @import "_catalog.scss";
+
+$breakpoint-desktop: 1024px;
+$breakpoint-tabletlandscape: 768px;
+$breakpoint-tablet: 488px;
+$max-columns: 4;
+$mid-columns: 3;
+$min-columns: 2;
+$width-basic-card: 200px;
+
+.catalog {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 48px;
+
+  $breakpoints:
+    $breakpoint-desktop 100vw $max-columns,
+    $breakpoint-tabletlandscape $breakpoint-desktop $mid-columns,
+    $breakpoint-tablet $breakpoint-tabletlandscape $min-columns;
+
+  @each $min-break, $max-break, $columns in $breakpoints {
+    @media all and (min-width: $min-break) and (max-width: $max-break) {
+      grid-template-columns: repeat($columns, $width-basic-card);
+    }
+  }
+}
