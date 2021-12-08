@@ -29,6 +29,10 @@ $width-basic-card: 200px;
 
   &__card {
     margin: 0;
+
+    &:not(:nth-child(4n)) {
+      margin-right: 0;
+    }
   }
 
   $breakpoints:
