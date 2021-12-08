@@ -25,6 +25,11 @@ $width-basic-card: 200px;
   display: grid;
   grid-auto-flow: row;
   gap: 48px;
+  justify-content: center;
+
+  &__card {
+    margin: 0;
+  }
 
   $breakpoints:
     $breakpoint-desktop 100vw $max-columns,
